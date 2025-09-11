@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Artemis QR Dashboard</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Artemis • Bảng quét QR (Realtime)</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="chip"><span class="status-dot" id="conn-dot"></span><span id="conn-text">Connecting...</span></div>
+        <div class="chip" id="total-chip">Total: 0</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <div class="controls">
+          <button id="btn-refresh" class="ghost">Tải lại dữ liệu</button>
+          <button id="btn-insert-test">Insert test (HTTP)</button>
+          <button id="btn-export">Export CSV</button>
+        </div>
+
+        <form id="send-form">
+          <div class="row">
+            <input id="inp-qr" type="text" placeholder="QR code" required />
+            <input id="inp-user" type="text" placeholder="User ID" required />
+            <button type="submit">Gửi (WS)</button>
+          </div>
+        </form>
+
+        <div class="table-wrapper">
+          <table id="tbl">
+            <thead>
+              <tr><th>ID</th><th>QR Code</th><th>User</th><th>Time</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="card right-panel">
+        <div class="small">Log realtime</div>
+        <div class="log" id="log"></div>
+
+        <div class="small">Kết nối WebSocket</div>
+        <div class="ws-buttons">
+          <button id="btn-connect" class="ghost">Kết nối</button>
+          <button id="btn-disconnect" class="ghost">Ngắt</button>
+        </div>
+
+        <div class="small">Thông tin</div>
+        <div class="small">WS: <code id="ws-url"></code></div>
+        <div class="small">HTTP GET: <code id="http-get"></code></div>
+      </aside>
+    </div>
+
+    <footer>Trang này kết nối tới <code>/api.artemis/socket</code> trên server Node.</footer>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
