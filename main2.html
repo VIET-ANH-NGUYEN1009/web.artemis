@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="header">Artemis</div>
+    </header>
+    
+    <div id="style">
+        <div class="chip"><span class="status-dot" id="conn-dot"></span><span id="conn-text">Connecting...</span></div>
+        
+        <div class="ws-buttons">
+          <button id="btn-connect" class="ghost">Connect</button>
+          <button id="btn-disconnect" class="ghost">Disconnect</button>
+        </div> 
+    </div>
+    <div class="grid">
+      <section class="card">
+
+        <form id="send-form">
+          <div class="row">
+            <input id="inp-qr" type="text" placeholder="QR code" required />
+            <input id="inp-user" type="text" placeholder="User ID" required />
+            <button id="button_send"type="submit">SEND</button>
+          </div>
+        </form>
+
+        <div class="table-wrapper">
+          <table id="tbl">
+            <thead>
+              <tr><th>QR Code</th><th>User</th><th>Time</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  <script src="index2.js"></script>
+  
+</body>
+</html>
